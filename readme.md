@@ -1,3 +1,8 @@
+##Website Info
+
+An easily searchable version of my postcard collection!
+
+
 ## Installation/Usage:
 
 First and foremost, you have to install __[node.js](https://nodejs.org/en/)__ on your machine (if, it is not already installed), then follow these 4 simple steps below:
@@ -22,8 +27,3 @@ $ npm install
 $ npm start
 ```
 
-### Additional Info:
-
-
-
-Your browser will open....Now edit `index.html` and/or `css/main.css` and/or `js/main.js` file inside `app` directory...:heart: :heart: :heart:
