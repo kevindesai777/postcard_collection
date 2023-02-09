@@ -1,5 +1,21 @@
-// your js code goes here...
-import json from '../collection.json' assert {type: 'json'};
+
+//import json from '../collection.json' assert {type: 'json'};
+
+var json = [
+   {
+       "type": "FOTW",
+       "values": ["Japan", "Slovenia", "Sweden", "Czech Republic ", "Switzerland ", "Netherlands ", "United Kingdom ", "Hungary", "United Arab Emirates", "Austria", "Taiwan", "Romania", "Spain", "Andorra", "IN PROG - Moldova", "Gibraltar", "Sri Lanka", "India", "Liechtenstein", "Northern Ireland", "Estonia", "Finland", "Australia", "European Union", "Indonesia ", "Croatia ", "Germany ", "Hong Kong", "England", "China", "Canada", "Bulgaria", "Cambodia", "Malaysia", "Kosovo", "Albania", "Montenegro", "Italy", "Poland", "Ukraine", "Laos", "Vatican City (Arranged)", "Azores", "Norway", "Bosnia", "Chile", "Cyprus", "Greece", "Netherlands", "Philippines", "Argentina", "South Korea", "French Guyana (Arranged)", "Aland Island", "ASEAN", "Turkey (Arranged)", "Cocos Island", "Thailand (Arranged)", "Costa Rica", "Ireland", "Dominican Republic (Arranged)", "Palau", "Portugal", "Azerbaijan", "USA", "Macau (Arranged)", "Iceland", "Belgium", "Latvia", "Kazakhstan (Arranged)", "Israel (Arranged)", "Benin"]
+   },
+   {
+       "type": "MOTW",
+       "values": ["Austria", "Costa Rica", "Canada", "UK", "Hong Kong", "Italy", "Finland", "Norway", "Spain", "Malaysia", "Japan", "Germany", "Czech Republic", "Taiwan", "IN PROG - China", "England", "Croatia", "Thailand", "UAE", "Sovereign Military Order Of Malta", "Poland"]
+
+   },
+   {
+       "type": "Loupaper",
+       "values": ["Georgia", "Alabama"]
+   }
+]
 
 console.log(json)
 
@@ -32,7 +48,7 @@ function search() {
       var filteredRes = values.filter(
           item => item.toLowerCase().includes(input.toLowerCase())
       );
-      console.log(filteredRes)
+      //console.log(filteredRes)
       if (filteredRes.length !== 0) {
          var li = document.createElement('li');
          li.textContent = item.type;
