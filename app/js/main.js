@@ -51,6 +51,7 @@ function search() {
       //console.log(filteredRes)
       if (filteredRes.length !== 0) {
          var li = document.createElement('li');
+         li.className = "list-group-item";
          li.textContent = item.type;
          var placeList = filteredRes.join(", ")
          var ul = document.createElement("ul")
