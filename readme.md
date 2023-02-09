@@ -1,4 +1,4 @@
-##Website Info
+## Website Info
 
 An easily searchable version of my postcard collection!
 
