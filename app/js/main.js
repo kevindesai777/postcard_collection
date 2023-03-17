@@ -71,7 +71,7 @@ function search() {
         badgeSpan.className = "badge badge-pill badge-primary";
         badgeSpan.textContent = unarrangedRes.length.toString()
         badgeSpan.style.marginLeft = '8px';
-        headerDiv.appendChild(badgeSpan)
+        topDiv.appendChild(badgeSpan)
 
         var searchList = document.getElementById("searchResult");
         var fragList = document.createDocumentFragment();
