@@ -19,19 +19,6 @@ var json = [
 
 console.log(json)
 
-// let list = document.getElementById("list");
-//       var fragList = document.createDocumentFragment();
-//       json.forEach(function (item) {
-//          var li = document.createElement('li');
-//          li.textContent = item.type;
-//          var placeList = item.values.toString()
-//          var ul = document.createElement("ul")
-//          ul.textContent = placeList
-//          li.appendChild(ul)
-//          fragList.appendChild(li);
-//       });
-//       list.appendChild(fragList);
-
 document.getElementById("searchInput").onkeyup = function () { search() }
 search()
 function search() {
