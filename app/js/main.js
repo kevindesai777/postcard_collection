@@ -1,4 +1,3 @@
-
 //import json from '../collection.json' assert {type: 'json'};
 
 var json = [
@@ -17,10 +16,10 @@ var json = [
     }
 ]
 
-console.log(json)
 
 document.getElementById("searchInput").onkeyup = function () { search() }
 search()
+
 function search() {
     var input;
     var filter;
@@ -28,62 +27,37 @@ function search() {
     var searchList = document.getElementById("searchResult");
     searchList.innerHTML = "";
     var fragList = document.createDocumentFragment();
-  
-    json.forEach(function (item) {
-      var values = item.values;
-      var unarrangedRes = [];
-      var arrangedRes = [];
-  
-      values.forEach(function (value) {
-          if (value.includes("Arranged")) {
-              arrangedRes.push(value.replace(" (Arranged)", ""));
-          } else {
-              unarrangedRes.push(value);
-          }
-      });
-  
-      if (unarrangedRes.length !== 0 || arrangedRes.length !== 0) {
-          var topDiv = document.createElement('div');
-          topDiv.className = "card";
-          topDiv.style.textAlign = "center";
-          var headerDiv = document.createElement('div');
-          headerDiv.className = "card-header";
-          headerDiv.textContent = item.type;
-          headerDiv.style.fontSize = '18px';
-          headerDiv.style.textAlign = "center";
-          topDiv.appendChild(headerDiv);
-  
-          var badgeDiv = document.createElement('div');
-          badgeDiv.style.display = 'flex';
-          badgeDiv.style.alignItems = 'center';
-          badgeDiv.style.marginTop = '10px';
-          var badgeSpan = document.createElement('span');
-          badgeSpan.className = "badge badge-pill badge-primary";
-          badgeSpan.textContent = unarrangedRes.length.toString()
-          badgeSpan.style.marginRight = '8px';
-          badgeDiv.appendChild(badgeSpan);
-          headerDiv.appendChild(badgeDiv);
-  
-          if (unarrangedRes.length !== 0) {
-              var unarrangedContentDiv = document.createElement("p");
-              unarrangedContentDiv.textContent = unarrangedRes.sort().join(", ");
-              unarrangedContentDiv.className = "list-group-item lead";
-              badgeDiv.appendChild(unarrangedContentDiv);
-          }
-  
-          if (arrangedRes.length !== 0) {
-              var arrangedContentDiv = document.createElement("p");
-              arrangedContentDiv.textContent = "<b>Arranged</b>: " + arrangedRes.sort().join(", ");
-              arrangedContentDiv.className = "list-group-item lead";
-              badgeDiv.appendChild(arrangedContentDiv);
-          }
-  
-          var searchList = document.getElementById("searchResult");
-          var fragList = document.createDocumentFragment();
-          fragList.appendChild(topDiv);
-          searchList.appendChild(fragList);
-      }
-  });
-  
-}
 
+    json.forEach(function (item) {
+        var values = item.values
+        var filteredRes = values.filter(
+            item => item.toLowerCase().includes(input.toLowerCase())
+        );
+        //console.log(filteredRes)
+        if (filteredRes.length !== 0) {
+            var topDiv = document.createElement('div');
+            topDiv.className = "card";
+            topDiv.style.textAlign = "center"
+            var headerDiv = document.createElement('div');
+            headerDiv.className = "card-header";
+            headerDiv.textContent = item.type;
+            headerDiv.style.fontSize = '18px';
+            headerDiv.style.textAlign = "center";
+            topDiv.appendChild(headerDiv);
+            var badgeSpan = document.createElement('span');
+            badgeSpan.className = "badge badge-pill badge-primary";
+            badgeSpan.textContent = filteredRes.length.toString()
+            badgeSpan.style.marginLeft = '8px';
+            headerDiv.appendChild(badgeSpan)
+            var placeList = filteredRes.sort().join(", ");
+            var contentDiv = document.createElement("p");
+            contentDiv.textContent = placeList
+            contentDiv.className = "list-group-item lead"
+            headerDiv.appendChild(contentDiv)
+            fragList.appendChild(topDiv);
+            searchList.appendChild(fragList)
+        }
+
+    });
+
+}
