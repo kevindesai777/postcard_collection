@@ -62,9 +62,8 @@ function search() {
 
         if (arrangedRes.length !== 0) {
             var arrangedContentDiv = document.createElement("p");
-            arrangedContentDiv.textContent = "Arranged: " + arrangedRes.sort().join(", ");
+            arrangedContentDiv.textContent = arrangedRes.sort().join(", ");
             arrangedContentDiv.className = "list-group-item lead";
-            arrangedContentDiv.style.color = "yellow";
             headerDiv.appendChild(arrangedContentDiv);
         }
 
