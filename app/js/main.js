@@ -29,46 +29,57 @@ function search() {
   searchList.innerHTML = "";
   var fragList = document.createDocumentFragment();
 
-  json.forEach(function(item) {
+  json.forEach(function (item) {
     var values = item.values;
-    var filteredRes = values.filter(
-      (item) => item.toLowerCase().includes(input.toLowerCase())
-    );
+    var unarrangedRes = [];
+    var arrangedRes = [];
 
-    if (filteredRes.length !== 0) {
-      var topDiv = document.createElement("div");
-      topDiv.className = "card";
-      topDiv.style.textAlign = "center";
-      var headerDiv = document.createElement("div");
-      headerDiv.className = "card-header";
-      headerDiv.textContent = item.type;
-      headerDiv.style.fontSize = "18px";
-      headerDiv.style.textAlign = "center";
-      topDiv.appendChild(headerDiv);
-      var badgeSpan = document.createElement("span");
-      badgeSpan.className = "badge badge-pill badge-primary";
-      badgeSpan.textContent = filteredRes.length.toString();
-      badgeSpan.style.marginLeft = "8px";
-      headerDiv.appendChild(badgeSpan);
-
-      var placeList = filteredRes.sort().map(function(value) {
-        var span = document.createElement("span");
-        span.textContent = value;
-
+    values.forEach(function (value) {
         if (value.includes("Arranged")) {
-          span.classList.add("arranged");
+            arrangedRes.push(value.replace(" (Arranged)", ""));
+        } else {
+            unarrangedRes.push(value);
+        }
+    });
+
+    if (unarrangedRes.length !== 0 || arrangedRes.length !== 0) {
+        var topDiv = document.createElement('div');
+        topDiv.className = "card";
+        topDiv.style.textAlign = "center"
+        var headerDiv = document.createElement('div');
+        headerDiv.className = "card-header";
+        headerDiv.textContent = item.type;
+        headerDiv.style.fontSize = '18px';
+        headerDiv.style.textAlign = "center";
+        topDiv.appendChild(headerDiv);
+
+        if (unarrangedRes.length !== 0) {
+            var unarrangedContentDiv = document.createElement("p");
+            unarrangedContentDiv.textContent = unarrangedRes.sort().join(", ");
+            unarrangedContentDiv.className = "list-group-item lead";
+            headerDiv.appendChild(unarrangedContentDiv);
         }
 
-        return span.outerHTML;
-      }).join(", ");
+        if (arrangedRes.length !== 0) {
+            var arrangedContentDiv = document.createElement("p");
+            arrangedContentDiv.textContent = "Arranged: " + arrangedRes.sort().join(", ");
+            arrangedContentDiv.className = "list-group-item lead";
+            arrangedContentDiv.style.color = "yellow";
+            headerDiv.appendChild(arrangedContentDiv);
+        }
 
-      var contentDiv = document.createElement("p");
-      contentDiv.innerHTML = placeList;
-      contentDiv.className = "list-group-item lead";
-      headerDiv.appendChild(contentDiv);
-      fragList.appendChild(topDiv);
-      searchList.appendChild(fragList);
+        var badgeSpan = document.createElement('span');
+        badgeSpan.className = "badge badge-pill badge-primary";
+        badgeSpan.textContent = unarrangedRes.length.toString()
+        badgeSpan.style.marginLeft = '8px';
+        headerDiv.appendChild(badgeSpan)
+
+        var searchList = document.getElementById("searchResult");
+        var fragList = document.createDocumentFragment();
+        fragList.appendChild(topDiv);
+        searchList.appendChild(fragList);
     }
-  });
+});
+
 }
 
