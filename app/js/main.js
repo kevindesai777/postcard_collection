@@ -5,7 +5,7 @@ var json = [
     },
     {
         "type": "MOTW",
-        "values": ["Austria", "Costa Rica", "Canada", "UK", "Hong Kong", "Italy", "Finland", "Norway", "Spain", "Malaysia", "Japan", "Germany", "Czech Republic", "Taiwan", "China", "England", "Croatia", "Thailand", "UAE", "Sovereign Military Order Of Malta", "Poland", "Ukraine", "Armenia", "Portgual", "Latvia", "Turkey", "St Pierre and Miquelon", "Singapore", "Malta", "Nepal", "Maldives", "Philippines", "Switzerland", "Slovenia", "Peru", "Belarus", "Bahamas", "Greece", "Hungary", "Ireland", "Cyprus", "Indonesia", "Pitcairn Islands", "San Marino", "Greenland", "Estonia", "Honduras", "Mozambique", "Denmark", "New Zealand ", "Israel", "Mexico", "Egypt", "Macau", "Iran", "Tanzania", "Cambodia", "Luxembourg", "Guatemala"]
+        "values": ["Austria", "Costa Rica", "Canada", "UK", "Hong Kong", "Italy", "Finland", "Norway", "Spain", "Malaysia", "Japan", "Germany", "Czech Republic", "Taiwan", "China", "England", "Croatia", "Thailand", "UAE", "Sovereign Military Order Of Malta", "Poland", "Ukraine", "Armenia", "Portgual", "Latvia", "Turkey", "St Pierre and Miquelon", "Singapore", "Malta", "Nepal", "Maldives", "Philippines", "Switzerland", "Slovenia", "Peru", "Belarus", "Bahamas", "Greece", "Hungary", "Ireland", "Cyprus", "Indonesia", "Pitcairn Islands", "San Marino", "Greenland", "Estonia", "Honduras", "Mozambique", "Denmark", "New Zealand ", "Israel", "Mexico", "Egypt", "Macau", "Iran", "Tanzania", "Cambodia", "Luxembourg", "Guatemala", "Sweden"]
 
     },
     {
